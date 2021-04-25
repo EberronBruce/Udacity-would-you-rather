@@ -3,6 +3,7 @@ import { saveQuestion, saveQuestionAnswer } from '../utils/api';
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS';
 export const ADD_QUESTION = 'ADD_QUESTION';
 export const SAVE_QUESTION_ANSWER = 'SAVE_QUESTION_ANSWER';
+export const REMOVE_QUESTION_ANSWER = 'REMOVE_QUESTION_ANSWER'
 
 export function recieveQuestions(questions) {
   return {
@@ -41,6 +42,15 @@ function saveAnswer(authedUser, qid, answer ) {
   };
 }
 
+function removeAnswer(authedUser, qid, answer) {
+  return {
+    type: REMOVE_QUESTION_ANSWER,
+    qid: qid,
+    authedUser: authedUser,
+    answer: answer
+  };
+}
+
 export function handleSaveAnswer(info) {
   return (dispatch) => {
     dispatch(saveAnswer(info))
@@ -48,7 +58,7 @@ export function handleSaveAnswer(info) {
     return saveQuestionAnswer(info)
       .catch((e) => {
         console.war("Error in handleSaveAnswer: ", e)
-        dispatch() //How to undo the save? Issue here
+        dispatch(removeAnswer(info)) //How to undo the save? Issue here
         alert("There was an error saving the answer. Try again.")
       })
   }
