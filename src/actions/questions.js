@@ -31,3 +31,25 @@ export function handleAddQuestion(optionOneText, OptionTwoText) {
     .then((question) => dispatch(addQuestion(question)));
   };
 }
+
+function saveAnswer(authedUser, qid, answer ) {
+  return {
+    type: SAVE_QUESTION_ANSWER,
+    qid: qid,
+    authedUser: authedUser,
+    answer: answer
+  };
+}
+
+export function handleSaveAnswer(info) {
+  return (dispatch) => {
+    dispatch(saveAnswer(info))
+
+    return saveQuestionAnswer(info)
+      .catch((e) => {
+        console.war("Error in handleSaveAnswer: ", e)
+        dispatch() //How to undo the save? Issue here
+        alert("There was an error saving the answer. Try again.")
+      })
+  }
+}
