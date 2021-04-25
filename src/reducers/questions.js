@@ -19,7 +19,17 @@ export default function questions (state = {}, action) {
     case SAVE_QUESTION_ANSWER:
       return {
         ...state,
-        //TODO: UNDATE THis
+        [action.qid] : {
+          ...state[action.qid],
+          [action.answer]: {
+            ...state[action.answer],
+            votes: state[action.answer].votes.conat(action.authedUser)
+          }
+        },
+        [action.authedUser] : {
+          ...state[action.authedUser],
+          answers: state[action.authedUser].answers.concat({[action.qid] : [action.answer]})
+        }
       };
       case REMOVE_QUESTION_ANSWER:
       return {
