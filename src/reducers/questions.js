@@ -16,14 +16,15 @@ export default function questions (state = {}, action) {
           questions: state[action.question.author].questions.concat([action.question.qid])
         }
       };
+      //Need to test this
     case SAVE_QUESTION_ANSWER:
       return {
         ...state,
         [action.qid] : {
           ...state[action.qid],
           [action.answer]: {
-            ...state[action.answer],
-            votes: state[action.answer].votes.conat(action.authedUser)
+            ...state[action.qid][action.answer],
+            votes: state[action.qid][action.answer].votes.conat(action.authedUser)
           }
         },
         [action.authedUser] : {
@@ -31,9 +32,21 @@ export default function questions (state = {}, action) {
           answers: state[action.authedUser].answers.concat({[action.qid] : [action.answer]})
         }
       };
+      //Need to test it
       case REMOVE_QUESTION_ANSWER:
       return {
-        //TODO: Update thsi
+        ...state,
+          [action.id] : {
+            ...state[action.id],
+            [action.answer] : {
+              ...state[action.qid][action.answer],
+              votes: state[action.qid][action.answer].votes.filter((uid) => uid !== action.authedUser)
+          }
+        },
+        [action.authedUser] : {
+          ...state[action.authedUser],
+          answers: state[action.authedUser].answers.filter((uid) => uid !== action.qid)
+        }
       };
     default:
       return state;
