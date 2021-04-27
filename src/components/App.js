@@ -11,10 +11,20 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Login />
+        {this.props.loading === true
+          ? null
+          : <Login />
+        }
+
       </div>
     );
   }
 }
 
-export default connect()(App);
+function mapStateToProps ({ users }) {
+  return {
+    loading: users.length === 0
+  };
+}
+
+export default connect(mapStateToProps)(App);

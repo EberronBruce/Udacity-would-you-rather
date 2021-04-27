@@ -13,6 +13,100 @@ code {
 }
 
 /* Add styles here for now */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  color: #252525;
+}
+
+a {
+  text-decoration: none;
+  color: #252525;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.btn {
+  text-transform: uppercase;
+  margin: 35px auto;
+  padding: 10px;
+  border: 1px solid rgba(0,0,0,.29);
+  cursor: pointer;
+  background: #2196f3;
+  font-size: 16px;
+  width: 100%;
+  position: relative;
+    border-radius: 10px;
+}
+
+.btn:hover {
+  border-color: rgba(0,0,0,.5);
+  background: #0069c0;
+  text-decoration: none;
+}
+
+.btn:focus {
+  outline: 0;
+  font-weight: 700;
+  border-width: 2px;
+}
+
 .center {
   text-align: center;
+}
+
+.active {
+  font-weight: bold;
+}
+
+.nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  text-decoration: none;
+}
+
+.nav li:first-child {
+  padding-left: 0;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style-type: none;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.avatar {
+  height: 50px;
+  border-radius: 25px;
+  margin: 10px;
+}
+
+/* User */
+.user {
+  width: 50%;
+  max-width: 250px;
+  padding: 5px;
+  display: flex;
+  margin: 0 auto;
+  border: 1px solid #dad7d7;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.user-info {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
