@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { setAuthedUser } from '../actions/authedUser';
 
 
 
 class User extends Component {
+  assignAuthedUser = (e) => {
+    e.preventDefault();
+
+    const {dispatch, user} = this.props
+
+    dispatch(setAuthedUser(user.id));
+  }
+
   render() {
     const { user } = this.props;
     if (user === null) {
@@ -19,7 +28,7 @@ class User extends Component {
         />
         <div className='user-info'>
           <span>{name}</span>
-          <button className='btn'> Sign In </button>
+          <button onClick={this.assignAuthedUser} className='btn'> Sign In </button>
         </div>
       </div>
     );

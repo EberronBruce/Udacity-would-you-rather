@@ -3,6 +3,7 @@ import '../App.css';
 import { connect } from 'react-redux';
 import { handleInitialData } from '../actions/shared';
 import Login from './Login';
+import QuestionList from './QuestionList'
 
 class App extends Component {
   componentDidMount() {
@@ -11,11 +12,11 @@ class App extends Component {
   render() {
     return (
       <div>
-        {this.props.loading === true
+        {/* {this.props.loading === true
           ? null
           : <Login />
-        }
-
+        } */}
+        <QuestionList />
       </div>
     );
   }
