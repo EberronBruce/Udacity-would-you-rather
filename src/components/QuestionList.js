@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { filterObject } from '../utils/helpers'
 
 
 class Questions extends Component {
@@ -13,10 +12,13 @@ class Questions extends Component {
     this.setState({selectedAnswer: selectedAnswer})
   }
 
+  listItem = (id) => {
+    let questions = this.props.questions
+    return <li key={id}>{questions[id].optionOne.text}</li>
+  }
+
   render() {
-
-    const { loading, answers, questions, unansweredQuestions } = this.props;
-
+    const { loading, answers, questions, unanswered} = this.props;
 
     return(
       <div>
@@ -28,15 +30,11 @@ class Questions extends Component {
           {!loading &&
             <ul>
               {this.state.selectedAnswer === true
-                ? answers.map( (answer) =>
-                  <li key={answer}>
-                    {questions[answer].optionOne.text}
-                  </li>
+                ? answers.map( (id) =>
+                  this.listItem(id, questions)
                 )
-                : Object.values(unansweredQuestions).map((question) =>
-                  <li key={question.id}>
-                    {question.optionOne.text}
-                  </li>
+                : unanswered.map((id) =>
+                  this.listItem(id, questions)
                 )
               }
             </ul>
@@ -53,12 +51,13 @@ function mapStateToProps({authedUser, users, questions}) {
   let unansweredQuestions = {...questions}
   let answers = Object.keys(users[authedUser].answers)
   answers.map((answer) => delete unansweredQuestions[answer])
+  let unanswered = Object.keys(unansweredQuestions)
 
   return {
     loading: false,
     answers,
     questions,
-    unansweredQuestions: unansweredQuestions
+    unanswered: unanswered
   }
 }
 
