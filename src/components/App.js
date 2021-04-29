@@ -11,7 +11,7 @@ class App extends Component {
   }
   render() {
     return (
-      <div>
+      <div className='container'>
         {/* {this.props.loading === true
           ? null
           : <Login />

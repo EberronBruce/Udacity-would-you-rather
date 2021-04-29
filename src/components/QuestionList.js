@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import QuestionSnippet from './QuestionSnippet';
 
 
 class Questions extends Component {
   state = {
-    selectedAnswer: false
+    selectedAnswer: false,
+    answerButtonSelected: false
   }
 
   selectAnswer = (e, selectedAnswer) => {
@@ -13,18 +15,25 @@ class Questions extends Component {
   }
 
   listItem = (id) => {
-    let questions = this.props.questions
-    return <li key={id}>{questions[id].optionOne.text}</li>
+    return <li key={id}><QuestionSnippet id={id} /></li>
   }
 
   render() {
     const { loading, answers, questions, unanswered} = this.props;
 
     return(
-      <div>
-        <div>
-          <button onClick={(e) => this.selectAnswer(e, false)}>Unanswered</button>
-          <button onClick={(e) => this.selectAnswer(e, true)}>Answered</button>
+      <div className='question-list'>
+        <div className='question-list-btn-holder'>
+          <button
+            className={`question-list-btn question-list-btn-left ${this.state.selectedAnswer ? "question-list-btn-not-selected" : "question-list-btn-selected"}`}
+            onClick={(e) => this.selectAnswer(e, false)}>
+            Unanswered
+          </button>
+          <button
+            className={`question-list-btn question-list-btn-right ${this.state.selectedAnswer ? "question-list-btn-selected" : "question-list-btn-not-selected"}`}
+            onClick={(e) => this.selectAnswer(e, true)}>
+            Answered
+          </button>
         </div>
         <div>
           {!loading &&
