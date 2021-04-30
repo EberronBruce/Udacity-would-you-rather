@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route} from 'react-router-dom';
 import '../App.css';
 import { connect } from 'react-redux';
 import { handleInitialData } from '../actions/shared';
@@ -17,13 +18,14 @@ class App extends Component {
           ? null
           : <Login />
         } */}
-        <QuestionHolder />
+        <QuestionList />
       </div>
     );
   }
 }
 
 function mapStateToProps ({ users, authedUser }) {
+  console.log(`App Autheduser: ${authedUser}`)
   return {
     loading: users.length === 0
   };

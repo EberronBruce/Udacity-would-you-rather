@@ -94,9 +94,20 @@ li {
 
 /* Question List Styles */
 .question-list {
-  border: 1px solid rgba(0,0,0,.29);
-  border-radius: 25px;
+
+
   width: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.question-list-holder {
+  width: 100%;
+  border: 1px solid rgba(0,0,0,.29);
+  border-top: none;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -105,7 +116,9 @@ li {
 .question-list-btn-holder {
   width: 100%;
   height: 50px;
-  border-bottom: 1px solid rgba(0,0,0,.29);
+  border: 1px solid rgba(0,0,0,.29);
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
 }
 
 .question-list-btn {
@@ -118,14 +131,10 @@ li {
 }
 
 .question-list-btn-left {
-  border-right: 1px solid rgba(0,0,0,.29);
-  background-color: rgba(0,0,0,0);
   border-top-left-radius: 25px;
 }
 
 .question-list-btn-right {
-  border-left: 1px solid rgba(0,0,0,.29);
-  background-color: rgba(0,0,0,0);
   border-top-right-radius: 25px;
 }
 

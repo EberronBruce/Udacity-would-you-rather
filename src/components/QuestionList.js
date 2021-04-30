@@ -35,7 +35,7 @@ class Questions extends Component {
             Answered
           </button>
         </div>
-        <div>
+        <div className='question-list-holder'>
           {!loading &&
             <ul>
               {this.state.selectedAnswer === true
