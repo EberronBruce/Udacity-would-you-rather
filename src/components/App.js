@@ -17,13 +17,13 @@ class App extends Component {
           ? null
           : <Login />
         } */}
-        <Login />
+        <QuestionHolder />
       </div>
     );
   }
 }
 
-function mapStateToProps ({ users }) {
+function mapStateToProps ({ users, authedUser }) {
   return {
     loading: users.length === 0
   };

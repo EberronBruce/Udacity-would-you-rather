@@ -146,6 +146,11 @@ li {
   border-radius: 25px;
 }
 
+.question-snippet-info {
+  display: flex;
+  justify-content: left;
+}
+
 .question-snippet-author {
   background-color : #1976d2;
   border: 1px solid rgba(0,0,0,.29);
@@ -160,10 +165,8 @@ li {
   width: 22%;
   float: left;
   border-right: 1px solid rgba(0,0,0,.29);
-  margin-top: 5px;
-  margin-bottom: 5px;
-  height: 75%;
-  padding-top: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -207,6 +210,10 @@ li {
   text-align: center;
 }
 
+.question-info {
+  width: 80%;
+}
+
 .question-header {
   padding: 0px;
   margin: 0px;
@@ -236,7 +243,6 @@ li {
 }
 
 .progress-bar {
-  width: 50%;
   height: 20px;
   background-color: #00227b;
   border-radius: 25px;
