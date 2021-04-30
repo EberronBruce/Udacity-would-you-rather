@@ -28,10 +28,7 @@ class QuestionSnippet extends Component {
 }
 
 function mapStateToProps({authedUser, users, questions}, {id}) {
-
-
   let author = users[questions[id].author]
-
 
   return {
     author: author,

@@ -35,20 +35,19 @@ a {
 
 .btn {
   text-transform: uppercase;
-  margin: 35px auto;
   padding: 10px;
   border: 1px solid rgba(0,0,0,.29);
   cursor: pointer;
-  background: #2196f3;
+  background: #3949ab;
+  color: #ffffff;
   font-size: 16px;
-  width: 100%;
-  position: relative;
+  width: 150px;
   border-radius: 10px;
 }
 
 .btn:hover {
   border-color: rgba(0,0,0,.5);
-  background: #0069c0;
+  background: #00227b;
   text-decoration: none;
 }
 
@@ -90,7 +89,7 @@ li {
 .avatar {
   height: 100px;
   border-radius: 25px;
-  margin: 10px;
+
 }
 
 /* Question List Styles */
@@ -115,6 +114,7 @@ li {
   border: none;
   font-weight: bold;
   font-size: 25px;
+  cursor: pointer;
 }
 
 .question-list-btn-left {
@@ -160,9 +160,15 @@ li {
   width: 22%;
   float: left;
   border-right: 1px solid rgba(0,0,0,.29);
-  margin-top: 10px;
-
+  margin-top: 5px;
+  margin-bottom: 5px;
+  height: 75%;
+  padding-top: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 
 .question-snippet-details {
   display: inline-block;
@@ -170,6 +176,7 @@ li {
   height: 125px;
   text-align: center;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .question-snippet-btn {
@@ -181,24 +188,135 @@ li {
   border-color: #3949ab;
   border-style: solid;
   border-radius: 5px;
+  cursor: pointer;
 }
 
-/* User */
-.user {
-  width: 50%;
-  max-width: 250px;
-  padding: 5px;
-  display: flex;
-  margin: 0 auto;
-  border: 1px solid #dad7d7;
-  border-radius: 10px;
-  cursor: pointer;
+.question-snippet-btn:hover {
+  border-color: rgba(0,34,123,.5);
+  color: rgba(0,34,123,.5);
+  text-decoration: none;
+}
+
+.question-snippet-btn:focus {
+  outline: 0;
+  font-weight: 700;
+  border-width: 2px;
+}
+
+.question-title-center {
   text-align: center;
 }
 
-.user-info {
-  margin: 10px;
+.question-header {
+  padding: 0px;
+  margin: 0px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.question-center-form {
+  display: inline-block;
+  width: 60%;
+  margin-left: 50px;
+}
+
+.question-submit-btn-container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.empty-bar {
+  width: 200px;
+  background-color: grey;
+  border-radius: 25px;
+  margin: 0px auto;
+}
+
+.progress-bar {
+  width: 50%;
+  height: 20px;
+  background-color: #00227b;
+  border-radius: 25px;
+}
+
+.progress-bar-text {
+  color: #ffffff;
+  text-align: center;
+}
+
+.question-answer-detail-container {
+  float: left;
+  width: 450px;
+  padding-left: 10px;
+
+}
+
+.answer-block {
+  border: 1px solid rgba(0,0,0,.29);
+  width: 60%;
+  margin: 20px auto;
+  text-align: center;
+  border-radius: 5px;
+  background-color: rgba(0,0,0,.05);
+}
+
+.answer-block-your-vote {
+  border: 1px solid #3949ab;
+  background-color: #63a4ff;
+  color: #ffffff;
+}
+
+.answer-your-vote {
+  float: right;
+  background-color: #ba000d;
+  width: 50px;
+  height: 50px;
+  margin-top: -20px;
+  margin-right: -20px;
+  border-radius: 50px;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  color: #ffffff;
+}
+
+/* Login */
+
+.login {
+  width: 600px;
+}
+
+.user {
+  border: 1px solid rgba(0,0,0,.29);
+  border-radius: 25px;
+  margin: 0 50px;
+  padding: 20px;
+}
+
+.user-info {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 15px;
+}
+
+.login-user-picture {
+  float: left;
+  height: 100px;
+  margin-right: 20px;
+}
+
+.user-info-name {
+  padding: 10px;
+  font-size: 20px;
+}
+
+
+.login-user-btn-holder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

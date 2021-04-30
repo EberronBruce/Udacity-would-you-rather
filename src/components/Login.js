@@ -9,8 +9,8 @@ class Login extends Component {
   //   console.log("-----------------------")
   // console.log(this.props)
     return (
-      <div>
-        <h3 className='center'>Login</h3>
+      <div className='login'>
+        <h2 className='center'>Login</h2>
         <ul>
           {this.props.userIds.map((id) => (
             <li key={id}>
