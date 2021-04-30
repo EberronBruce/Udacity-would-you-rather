@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setAuthedUser } from '../actions/authedUser';
+import QuestionPicture from './QuestionPicture';
 
 
 
@@ -21,20 +22,15 @@ class User extends Component {
     const {name, avatarURL} = user;
     return (
       <div className='user'>
-        <div className='user-info'>
-          <div className='login-user-picture'>
-            <img
-              src={avatarURL}
-              alt={`Avatar of ${name}`}
-              className='avatar'
-            />
-          </div>
+        <div className='login-user-picture'>
+          <QuestionPicture author={user} />
           <div className='user-info-name'>
             <h3>{name}</h3>
+            <div className='login-user-btn-holder'>
+              <button onClick={this.assignAuthedUser} className='btn login-btn'> Sign In </button>
+            </div>
           </div>
-        </div>
-        <div className='login-user-btn-holder'>
-          <button onClick={this.assignAuthedUser} className='btn login-btn'> Sign In </button>
+
         </div>
       </div>
     );

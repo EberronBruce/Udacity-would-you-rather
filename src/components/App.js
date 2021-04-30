@@ -11,15 +11,18 @@ class App extends Component {
   componentDidMount() {
     this.props.dispatch(handleInitialData());
   }
+
   render() {
     return (
-      <div className='container'>
-        {/* {this.props.loading === true
-          ? null
-          : <Login />
-        } */}
-        <QuestionList />
-      </div>
+      <Router>
+        <div className='container'>
+          {this.props.loading === true
+            ? null
+            : <Login />
+          } 
+
+        </div>
+      </Router>
     );
   }
 }
@@ -27,7 +30,8 @@ class App extends Component {
 function mapStateToProps ({ users, authedUser }) {
   console.log(`App Autheduser: ${authedUser}`)
   return {
-    loading: users.length === 0
+    loading: users.length === 0,
+    authedUser
   };
 }
 
