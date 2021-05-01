@@ -18,13 +18,16 @@ export default function questions (state = {}, action) {
       };
       //Need to test this
     case SAVE_QUESTION_ANSWER:
+      console.log("========================================")
+      console.log(`SAVE QUESTION ANSWER: ${JSON.stringify(state)}`)
+      console.log("========================================")
       return {
         ...state,
         [action.qid] : {
           ...state[action.qid],
           [action.answer]: {
             ...state[action.qid][action.answer],
-            votes: state[action.qid][action.answer].votes.conat(action.authedUser)
+            votes: state[action.qid][action.answer].votes.concat(action.authedUser)
           }
         },
         [action.authedUser] : {

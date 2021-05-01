@@ -17,30 +17,23 @@ class QuestionHolder extends Component {
   }
 
   render() {
-    const { author, question} = this.props;
+    const { author, question, answer, authedUser} = this.props;
+    if (authedUser === null) {
+      return <p>The user isn't logged in.</p>
+    }
+
+    if (author === null) {
+      return <p>This author doesn't exist</p>
+    }
+
     return (
-
       <div className="question-snippet">
-        {this.props.loading === true
-          ? null
-          :
-
-          <QuestionAuthorHeader author={author} />
-
-        }
+        <QuestionAuthorHeader author={author} />
         <div className='question-snippet-info'>
-          {this.props.loading === true
-            ? null
-            :
-
-            <QuestionPicture author={author} />
-
-          }
-
-          {this.props.loading === true
-            ? null
-            : this.questionItem(question)
-
+          <QuestionPicture author={author} />
+          {answer === null || answer === undefined
+            ? this.questionItem(question)
+            : this.answerItem(question)
           }
         </div>
       </div>
@@ -49,19 +42,16 @@ class QuestionHolder extends Component {
 }
 
 function mapStateToProps({authedUser, users, questions}, props) {
-  //Todo: for Testing purposes
-  console.log(authedUser)
-  if (authedUser === null) {return { loading : true}}
-  let id = "vthrdm985a262al8qx3do";
-  //const { id } = props.match.params
-  let author = users[questions[id].author]
-  console.log(`questions: ${questions[id].author}`)
+  const { id } = props.match.params;
+  let author = users[questions[id].author];
+  let answer = users[authedUser].answers[id]
 
-  //let author = users[questions[id].author]
   return {
     loading: false,
     author: author,
-    question: questions[id]
+    question: questions[id],
+    answer: answer,
+    autheduser: authedUser
   }
 }
 

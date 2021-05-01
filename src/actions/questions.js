@@ -33,7 +33,7 @@ export function handleAddQuestion(optionOneText, OptionTwoText) {
   };
 }
 
-function saveAnswer(authedUser, qid, answer ) {
+function saveAnswer( {authedUser, qid, answer }) {
   return {
     type: SAVE_QUESTION_ANSWER,
     qid: qid,

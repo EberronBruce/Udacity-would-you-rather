@@ -332,3 +332,10 @@ li {
     align-items: center;
     margin-bottom: 5px;
 }
+
+.sub-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

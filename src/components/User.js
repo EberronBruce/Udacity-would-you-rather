@@ -19,7 +19,7 @@ class User extends Component {
     if (user === null) {
       return <p>This user doesnt exist.</p>;
     }
-    const {name, avatarURL} = user;
+    const {name} = user;
     return (
       <div className='user'>
         <div className='login-user-picture'>
@@ -30,7 +30,6 @@ class User extends Component {
               <button onClick={this.assignAuthedUser} className='btn login-btn'> Sign In </button>
             </div>
           </div>
-
         </div>
       </div>
     );
