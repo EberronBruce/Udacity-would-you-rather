@@ -7,7 +7,6 @@ import QuestionAuthorHeader from './QuestionAuthorHeader';
 
 class QuestionHolder extends Component {
 
-
   questionItem = (question) => {
     return <Question question={question} />
   }
@@ -57,4 +56,4 @@ function mapStateToProps({authedUser, users, questions}, props) {
   }
 }
 
-export default connect(mapStateToProps)(QuestionHolder)
+export default connect(mapStateToProps)(QuestionHolder);

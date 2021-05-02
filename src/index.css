@@ -339,3 +339,83 @@ li {
   justify-content: center;
   align-items: center;
 }
+
+/* Leader Board */
+.leader-list-holder {
+  width: 100%;
+  border: 1px solid rgba(0,0,0,.29);
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.leader-data-container {
+  width: 60%;
+}
+
+.leader-data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.leader-data-text {
+  width: 200px;
+  padding: 10px 5px;
+}
+
+.leader-data-number {
+  margin-left: 30px;
+}
+
+.leader-user-name {
+  width: 100%;
+  text-align: center;
+  height: 50px;
+}
+
+.line {
+  margin: 0px 20px;
+}
+
+.leader-data-holder {
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.leader-score-container {
+  width: 20%;
+  height: 100%;
+  border: 1px solid rgba(0,0,0,.29);
+  border-top: none;
+  margin: auto 30px;
+  border-radius: 25px;
+}
+
+.score-text-holder {
+  border: 1px solid rgba(0,0,0,.29);
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  margin: 0px;
+  text-align: center;
+  background-color: #63a4ff;
+  color: #ffffff;
+}
+
+.score-header {
+  padding: 0px;
+  margin: 12px;
+}
+
+.score-number-holder {
+  background-color: #3949ab;
+  width: 60px;
+  height: 60px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  margin: 15px auto;
+}
