@@ -56,7 +56,12 @@ class Questions extends Component {
 
 function mapStateToProps({authedUser, users, questions}) {
   if (authedUser === null) {return { loading : true}}
-  let unansweredQuestions = {...questions}
+  //Sort questions by timestamp
+  let keys = Object.keys(questions).sort((a,b) => questions[b].timestamp - questions[a].timestamp);
+  let sortedQuestions = {};
+  for (let id of keys) { sortedQuestions[id] = questions[id]}
+  //Create answered and unanswered questions
+  let unansweredQuestions = {...sortedQuestions}
   let answers = Object.keys(users[authedUser].answers)
   answers.map((answer) => delete unansweredQuestions[answer])
   let unanswered = Object.keys(unansweredQuestions)
@@ -64,7 +69,7 @@ function mapStateToProps({authedUser, users, questions}) {
   return {
     loading: false,
     answers,
-    questions,
+    questions: sortedQuestions,
     unanswered: unanswered
   }
 }
