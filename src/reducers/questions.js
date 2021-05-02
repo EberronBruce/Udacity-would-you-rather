@@ -16,11 +16,7 @@ export default function questions (state = {}, action) {
           questions: state[action.question.author].questions.concat([action.question.qid])
         }
       };
-      //Need to test this
     case SAVE_QUESTION_ANSWER:
-      console.log("========================================")
-      console.log(`SAVE QUESTION ANSWER: ${JSON.stringify(state)}`)
-      console.log("========================================")
       return {
         ...state,
         [action.qid] : {
@@ -29,26 +25,17 @@ export default function questions (state = {}, action) {
             ...state[action.qid][action.answer],
             votes: state[action.qid][action.answer].votes.concat(action.authedUser)
           }
-        },
-        [action.authedUser] : {
-          ...state[action.authedUser],
-          answers: state[action.authedUser].answers.concat({[action.qid] : [action.answer]})
         }
       };
-      //Need to test it
-      case REMOVE_QUESTION_ANSWER:
+    case REMOVE_QUESTION_ANSWER:
       return {
         ...state,
-          [action.id] : {
-            ...state[action.id],
+          [action.qid] : {
+            ...state[action.qid],
             [action.answer] : {
               ...state[action.qid][action.answer],
               votes: state[action.qid][action.answer].votes.filter((uid) => uid !== action.authedUser)
           }
-        },
-        [action.authedUser] : {
-          ...state[action.authedUser],
-          answers: state[action.authedUser].answers.filter((uid) => uid !== action.qid)
         }
       };
     default:

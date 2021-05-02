@@ -56,7 +56,6 @@ class Questions extends Component {
 
 function mapStateToProps({authedUser, users, questions}) {
   if (authedUser === null) {return { loading : true}}
-
   let unansweredQuestions = {...questions}
   let answers = Object.keys(users[authedUser].answers)
   answers.map((answer) => delete unansweredQuestions[answer])

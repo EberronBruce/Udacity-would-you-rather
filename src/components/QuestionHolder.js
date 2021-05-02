@@ -17,12 +17,14 @@ class QuestionHolder extends Component {
   }
 
   render() {
-    const { author, question, answer, authedUser} = this.props;
+    const { question, answer, authedUser, users} = this.props;
+    const author = users[question.author];
+
     if (authedUser === null) {
       return <p>The user isn't logged in.</p>
     }
 
-    if (author === null) {
+    if (author === null || author === undefined) {
       return <p>This author doesn't exist</p>
     }
 
@@ -42,16 +44,16 @@ class QuestionHolder extends Component {
 }
 
 function mapStateToProps({authedUser, users, questions}, props) {
-  const { id } = props.match.params;
-  let author = users[questions[id].author];
-  let answer = users[authedUser].answers[id]
+  const { question_id } = props.match.params;
+
+  let answer = users[authedUser].answers[question_id]
 
   return {
     loading: false,
-    author: author,
-    question: questions[id],
+    question: questions[question_id],
     answer: answer,
-    autheduser: authedUser
+    autheduser: authedUser,
+    users
   }
 }
 

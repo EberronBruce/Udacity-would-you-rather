@@ -18,10 +18,9 @@ class Answer extends Component {
 }
 
 function mapStateToProps({authedUser, users, questions}, {question}) {
-
   return {
     question: question,
-    authedUser: authedUser
+    authedUser: authedUser,
   }
 }
 

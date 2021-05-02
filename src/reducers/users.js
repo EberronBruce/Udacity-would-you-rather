@@ -1,4 +1,4 @@
-import { RECEIVE_USERS } from '../actions/users';
+import { RECEIVE_USERS, ADD_ANSWER, REMOVE_ANSWER } from '../actions/users';
 
 export default function users (state = {}, action) {
   switch(action.type) {
@@ -7,7 +7,23 @@ export default function users (state = {}, action) {
         ...state,
         ...action.users
       }
-      default:
-        return state
+    case ADD_ANSWER:
+      return {
+        ...state,
+        [action.authedUser] : {
+          ...state[action.authedUser],
+          answers: {
+            ...state[action.authedUser].answers,
+            [action.qid]: action.answer
+          }
+        }
+      }
+    case REMOVE_ANSWER:
+    //Can't figure out a way to remove the item from the object another way.
+    //This way works, if there is a better way let me know.
+      delete state[action.authedUser].answers[action.qid];
+      return state;
+    default:
+      return state
   }
 }

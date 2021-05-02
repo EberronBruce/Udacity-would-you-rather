@@ -1,4 +1,4 @@
-import { saveQuestion, saveQuestionAnswer } from '../utils/api';
+import { saveQuestion } from '../utils/api';
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS';
 export const ADD_QUESTION = 'ADD_QUESTION';
@@ -20,7 +20,7 @@ function addQuestion(question) {
   };
 }
 
-export function handleAddQuestion(optionOneText, OptionTwoText) {
+export function handleAddQuestion({optionOneText, OptionTwoText}) {
   return (dispatch, getState) => {
     const { authedUser } = getState();
 
@@ -33,7 +33,7 @@ export function handleAddQuestion(optionOneText, OptionTwoText) {
   };
 }
 
-function saveAnswer( {authedUser, qid, answer }) {
+export function saveAnswer( {authedUser, qid, answer }) {
   return {
     type: SAVE_QUESTION_ANSWER,
     qid: qid,
@@ -42,24 +42,11 @@ function saveAnswer( {authedUser, qid, answer }) {
   };
 }
 
-function removeAnswer(authedUser, qid, answer) {
+export function removeAnswer({authedUser, qid, answer}) {
   return {
     type: REMOVE_QUESTION_ANSWER,
     qid: qid,
     authedUser: authedUser,
     answer: answer
   };
-}
-
-export function handleSaveAnswer(info) {
-  return (dispatch) => {
-    dispatch(saveAnswer(info))
-
-    return saveQuestionAnswer(info)
-      .catch((e) => {
-        console.war("Error in handleSaveAnswer: ", e)
-        dispatch(removeAnswer(info)) //How to undo the save? Issue here
-        alert("There was an error saving the answer. Try again.")
-      })
-  }
 }

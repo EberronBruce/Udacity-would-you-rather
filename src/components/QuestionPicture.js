@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 class QuestionPicture extends Component {
   render() {
     const { author } = this.props;
+
     return(
       <div className='question-snippet-picture-holder'>
         <img

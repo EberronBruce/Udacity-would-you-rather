@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 class QuestionAuthorHeader extends Component {
   render() {
     const { author } = this.props;
+
     return(
       <div className='question-snippet-author'>
         <h3>{`${author.name} asks:`}</h3>

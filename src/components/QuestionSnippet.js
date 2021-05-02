@@ -9,7 +9,7 @@ class QuestionSnippet extends Component {
 
   toQuestion = (e, id) => {
     e.preventDefault();
-    this.props.history.push(`/question/${id}`)
+    this.props.history.push(`/questions/${id}`)
   }
 
   render() {
@@ -21,7 +21,7 @@ class QuestionSnippet extends Component {
     const { id } = question.id;
 
     return (
-      <Link to={`/question/${id}`}>
+      <Link to={`/questions/${id}`}>
         <div  className='question-snippet'>
           <QuestionAuthorHeader author={author} />
           <div className='question-snippet-info'>

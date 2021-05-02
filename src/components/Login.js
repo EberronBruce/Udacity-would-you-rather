@@ -6,8 +6,6 @@ import User from './User';
 
 class Login extends Component {
   render() {
-  //   console.log("-----------------------")
-  // console.log(this.props)
     return (
       <div className='login'>
         <h2 className='center'>Login</h2>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { handleSaveAnswer } from '../actions/questions';
+import { handleSaveAnswer } from '../actions/shared';
 
 
 class Question extends Component {
@@ -13,10 +13,8 @@ class Question extends Component {
   }
 
   onSubmit = (e) => {
-    console.log(`Props question id: ${this.props.question.id}`)
     e.preventDefault();
     const { dispatch } = this.props;
-    console.log(this.state.selectedOption)
     this.state.selectedOption !== null
     ? dispatch(
       handleSaveAnswer({
@@ -25,11 +23,7 @@ class Question extends Component {
         answer: this.state.selectedOption
       })
     )
-    : console.log("blah")
-
-
-    console.log(`AuthedUser: ${this.props.authedUser}`)
-    console.log(this.props.question.answers)
+    : console.log("Selected Option is null, Do nothing")
   }
 
   render() {

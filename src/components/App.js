@@ -25,7 +25,7 @@ class App extends Component {
               <div className='sub-container'>
                 <Route path='/login' component={Login} />
                 <Route path='/' exact component={QuestionList} />
-                <Route path='/question/:id' component={QuestionHolder} />
+                <Route path='/questions/:question_id' component={QuestionHolder} />
                 <Route path='/new' component={NewQuestion} />
               </div>
           }
@@ -36,7 +36,6 @@ class App extends Component {
 }
 
 function mapStateToProps ({ users, authedUser }) {
-  console.log(`App Autheduser: ${authedUser}`)
   return {
     loading: users.length === 0,
     authedUser
