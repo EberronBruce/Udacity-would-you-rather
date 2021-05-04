@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setAuthedUser } from '../../actions/authedUser';
 
@@ -30,12 +30,16 @@ class NavRight extends Component {
                   Login
                 </NavLink>
               :
-              <span className='nav-item logout-btn' onClick={this.logout}>
-                Logout
+              <span onClick={this.logout}>
+                <Link to='/' className='nav-item logout-btn'>
+                  Logout
+                </Link>
               </span>
             }
           </li>
         </ul>
+
+
       </nav>
     )
   }

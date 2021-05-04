@@ -442,8 +442,6 @@ li {
   margin: 0px 25px;
 }
 
-.create-question-form {
-}
 
 .create-question-input-holder {
   margin-right: 25px;
@@ -536,4 +534,31 @@ li {
 
 .logout-btn {
   cursor: pointer;
+}
+
+/* Page Not Found */
+
+.not-found-container {
+  width: 1000px;
+  border: 1px solid rgba(0,0,0,.29);
+  border-radius: 25px;
+  text-align: center;
+}
+
+.not-found-container h1 {
+  background: #3949ab;
+  color: #ffffff;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  margin: 0px;
+  padding: 30px;
+}
+
+.not-found-container h2 {
+  padding: 30px;
+}
+
+.not-found-container p {
+  margin: 50px 0px;
+  color: blue;
 }

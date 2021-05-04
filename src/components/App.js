@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import '../App.css';
 import { connect } from 'react-redux';
 import { handleInitialData } from '../actions/shared';
@@ -9,6 +9,7 @@ import QuestionHolder from './question/QuestionHolder';
 import NewQuestion from './add/NewQuestion';
 import LeaderBoard from './leaderboard/LeaderBoard';
 import Nav from './nav/Nav';
+import PageNotFound from './PageNotFound';
 
 class App extends Component {
   componentDidMount() {
@@ -27,11 +28,14 @@ class App extends Component {
                 ? <Route path='/' component={Login} />
                 :
                 <div className='sub-container'>
-                  <Route path='/login' component={Login} />
-                  <Route path='/' exact component={QuestionList} />
-                  <Route path='/questions/:question_id' component={QuestionHolder} />
-                  <Route path='/add' component={NewQuestion} />
-                  <Route path='/leaderboard' component={LeaderBoard} />
+                  <Switch>
+                    <Route path='/login' component={Login} />
+                    <Route path='/' exact component={QuestionList} />
+                    <Route path='/questions/:question_id' component={QuestionHolder} />
+                    <Route path='/add' component={NewQuestion} />
+                    <Route path='/leaderboard' component={LeaderBoard} />
+                    <Route path='*' component={PageNotFound} />
+                  </Switch>
                 </div>
             }
           </div>
