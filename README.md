@@ -1,3 +1,12 @@
+# Introduction
+This is a react.js application for the Would You Rather project for Udacity React Nanodegree program using React and Redux.
+
+I used create react app to get the project started and use the _DATA.js file to have an initial state to act as a pseudo back-end api.
+
+Should be able to start the app using `npm install` and `npm start`, or you could use yarn.
+
+Leaving the instructions from create react app below for further details. 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
