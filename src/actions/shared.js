@@ -1,6 +1,6 @@
-import { getInitialData, saveQuestionAnswer } from '../utils/api';
-import { recieveQuestions, saveAnswer, removeAnswer} from '../actions/questions';
-import { recieveUsers, addUserAnswer, removeUserAnswer } from '../actions/users';
+import { getInitialData, saveQuestionAnswer,  saveQuestion } from '../utils/api';
+import { recieveQuestions, saveAnswer, removeAnswer, addQuestion } from '../actions/questions';
+import { recieveUsers, addUserAnswer, removeUserAnswer, addUserQuestion } from '../actions/users';
 
 
 export function handleInitialData() {
@@ -34,4 +34,22 @@ export function handleRemoveAnswer(info) {
     dispatch(removeAnswer(info)) //How to undo the save? Issue here
     dispatch(removeUserAnswer(info))
   }
+}
+
+export function handleAddQuestion(optionOneText, OptionTwoText) {
+  return (dispatch, getState) => {
+    const { authedUser } = getState();
+
+    return saveQuestion({
+      optionOneText: optionOneText,
+      optionTwoText: OptionTwoText,
+      author: authedUser
+    })
+    .then((question) => {
+      console.log(`Question: ${question.id}`)
+      dispatch(addUserQuestion( {authedUser, question } ))
+      dispatch(addQuestion(question))
+
+    });
+  };
 }

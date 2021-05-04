@@ -13,23 +13,10 @@ export function recieveQuestions(questions) {
 }
 
 //TODO need to be more defined on the question
-function addQuestion(question) {
+export function addQuestion(question) {
   return {
     type: ADD_QUESTION,
     question: question
-  };
-}
-
-export function handleAddQuestion({optionOneText, OptionTwoText}) {
-  return (dispatch, getState) => {
-    const { authedUser } = getState();
-
-    return saveQuestion({
-      optionOneText: optionOneText,
-      optionTwoText: OptionTwoText,
-      author: authedUser
-    })
-    .then((question) => dispatch(addQuestion(question)));
   };
 }
 
