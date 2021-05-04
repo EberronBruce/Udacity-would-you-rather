@@ -8,6 +8,7 @@ import QuestionList from './QuestionList';
 import QuestionHolder from './QuestionHolder';
 import NewQuestion from './NewQuestion';
 import LeaderBoard from './LeaderBoard';
+import Nav from './Nav';
 
 class App extends Component {
   componentDidMount() {
@@ -17,20 +18,23 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className='container'>
-          {this.props.loading === true
-            ? null
-            : this.props.authedUser === null
-              ? <Route path='/' component={Login} />
-              :
-              <div className='sub-container'>
-                <Route path='/login' component={Login} />
-                <Route path='/' exact component={QuestionList} />
-                <Route path='/questions/:question_id' component={QuestionHolder} />
-                <Route path='/add' component={NewQuestion} />
-                <Route path='/leaderboard' component={LeaderBoard} />
-              </div>
-          }
+        <div>
+          <Nav />
+          <div className='container'>
+            {this.props.loading === true
+              ? null
+              : this.props.authedUser === null
+                ? <Route path='/' component={Login} />
+                :
+                <div className='sub-container'>
+                  <Route path='/login' component={Login} />
+                  <Route path='/' exact component={QuestionList} />
+                  <Route path='/questions/:question_id' component={QuestionHolder} />
+                  <Route path='/add' component={NewQuestion} />
+                  <Route path='/leaderboard' component={LeaderBoard} />
+                </div>
+            }
+          </div>
         </div>
       </Router>
     );
