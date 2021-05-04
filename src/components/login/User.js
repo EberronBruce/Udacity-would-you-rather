@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setAuthedUser } from '../actions/authedUser';
-import QuestionPicture from './QuestionPicture';
+import { setAuthedUser } from '../../actions/authedUser';
+import QuestionPicture from '../question/QuestionPicture';
 
 
 

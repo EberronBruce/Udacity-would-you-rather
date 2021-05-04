@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import QuestionPicture from './QuestionPicture';
+import QuestionPicture from '../question/QuestionPicture';
 
 class LeaderSnippet extends Component {
   render() {

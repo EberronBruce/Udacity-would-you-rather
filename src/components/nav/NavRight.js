@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { setAuthedUser } from '../actions/authedUser';
+import { setAuthedUser } from '../../actions/authedUser';
 
 class NavRight extends Component {
   logout = (e) => {
     e.preventDefault();
-    const { dispatch, authedUser } = this.props;
-    console.log(`authedUser before ${authedUser}`)
+    const { dispatch } = this.props;
     dispatch(setAuthedUser(null))
-    console.log(`authedUser before ${authedUser}`)
   }
 
   render(){
@@ -35,9 +33,7 @@ class NavRight extends Component {
               <span className='nav-item logout-btn' onClick={this.logout}>
                 Logout
               </span>
-
             }
-
           </li>
         </ul>
       </nav>

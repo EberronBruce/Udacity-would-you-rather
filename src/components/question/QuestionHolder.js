@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Question from './Question';
-import Answer from './Answer';
+import Answer from '../answer/Answer';
 import QuestionPicture from './QuestionPicture';
 import QuestionAuthorHeader from './QuestionAuthorHeader';
 

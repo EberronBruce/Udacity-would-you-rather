@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { handleSaveAnswer } from '../actions/shared';
+import { handleSaveAnswer } from '../../actions/shared';
 
 
 class Question extends Component {

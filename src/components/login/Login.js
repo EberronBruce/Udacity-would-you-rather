@@ -8,7 +8,7 @@ class Login extends Component {
   render() {
     return (
       <div className='login'>
-        <h2 className='center'>Login</h2>
+        <h2 className='center'>Please Login</h2>
         <ul>
           {this.props.userIds.map((id) => (
             <li key={id}>

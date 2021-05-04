@@ -3,12 +3,12 @@ import { BrowserRouter as Router, Route} from 'react-router-dom';
 import '../App.css';
 import { connect } from 'react-redux';
 import { handleInitialData } from '../actions/shared';
-import Login from './Login';
-import QuestionList from './QuestionList';
-import QuestionHolder from './QuestionHolder';
-import NewQuestion from './NewQuestion';
-import LeaderBoard from './LeaderBoard';
-import Nav from './Nav';
+import Login from './login/Login';
+import QuestionList from './question/QuestionList';
+import QuestionHolder from './question/QuestionHolder';
+import NewQuestion from './add/NewQuestion';
+import LeaderBoard from './leaderboard/LeaderBoard';
+import Nav from './nav/Nav';
 
 class App extends Component {
   componentDidMount() {
