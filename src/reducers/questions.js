@@ -1,4 +1,4 @@
-import {SAVE_QUESTION_ANSWER, ADD_QUESTION, RECEIVE_QUESTIONS, REMOVE_QUESTION_ANSWER } from '../actions/questions';
+import {SAVE_ANSWER, ADD_QUESTION, RECEIVE_QUESTIONS, REMOVE_ANSWER } from '../actions/questions';
 
 export default function questions (state = {}, action) {
   switch(action.type) {
@@ -12,7 +12,7 @@ export default function questions (state = {}, action) {
         ...state,
         [action.question.id]: action.question
       };
-    case SAVE_QUESTION_ANSWER:
+    case SAVE_ANSWER:
       return {
         ...state,
         [action.qid] : {
@@ -23,7 +23,7 @@ export default function questions (state = {}, action) {
           }
         }
       };
-    case REMOVE_QUESTION_ANSWER:
+    case REMOVE_ANSWER:
       return {
         ...state,
           [action.qid] : {

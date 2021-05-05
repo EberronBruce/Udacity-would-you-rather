@@ -1,8 +1,8 @@
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS';
 export const ADD_QUESTION = 'ADD_QUESTION';
-export const SAVE_QUESTION_ANSWER = 'SAVE_QUESTION_ANSWER';
-export const REMOVE_QUESTION_ANSWER = 'REMOVE_QUESTION_ANSWER'
+export const SAVE_ANSWER = 'SAVE_ANSWER';
+export const REMOVE_ANSWER = 'REMOVE_QUESTION_ANSWER'
 
 export function recieveQuestions(questions) {
   return {
@@ -21,7 +21,7 @@ export function addQuestion(question) {
 
 export function saveAnswer( {authedUser, qid, answer }) {
   return {
-    type: SAVE_QUESTION_ANSWER,
+    type: SAVE_ANSWER,
     qid: qid,
     authedUser: authedUser,
     answer: answer
@@ -30,7 +30,7 @@ export function saveAnswer( {authedUser, qid, answer }) {
 
 export function removeAnswer({authedUser, qid, answer}) {
   return {
-    type: REMOVE_QUESTION_ANSWER,
+    type: REMOVE_ANSWER,
     qid: qid,
     authedUser: authedUser,
     answer: answer
