@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import Question from './Question';
 import Answer from '../answer/Answer';
 import QuestionPicture from './QuestionPicture';
@@ -17,6 +18,9 @@ class QuestionHolder extends Component {
 
   render() {
     const { question, answer, authedUser, users} = this.props;
+    if(!question) {
+      return <Redirect to='/404' />
+    }
     const author = users[question.author];
 
     if (authedUser === null) {

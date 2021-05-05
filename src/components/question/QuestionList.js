@@ -62,10 +62,9 @@ function mapStateToProps({authedUser, users, questions}) {
   for (let id of keys) { sortedQuestions[id] = questions[id]}
   //Create answered and unanswered questions
   let unansweredQuestions = {...sortedQuestions}
-  let answers = Object.keys(users[authedUser].answers)
+  let answers = Object.keys(users[authedUser].answers).sort((a,b) => questions[b].timestamp - questions[a].timestamp)
   answers.map((answer) => delete unansweredQuestions[answer])
   let unanswered = Object.keys(unansweredQuestions)
-
   return {
     loading: false,
     answers,

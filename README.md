@@ -5,7 +5,10 @@ I used create react app to get the project started and use the _DATA.js file to 
 
 Should be able to start the app using `npm install` and `npm start`, or you could use yarn.
 
-Leaving the instructions from create react app below for further details. 
+Leaving the instructions from create react app below for further details.
+
+### Author:
+EberronBruce
 
 # Getting Started with Create React App
 
